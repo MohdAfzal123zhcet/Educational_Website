@@ -1,0 +1,24 @@
+
+<?php
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="minor-project";
+
+$con=mysqli_connect($servername,$username,$password,$dbname);
+if($con)
+{
+echo "connection OK";
+}
+else
+{
+die("connection failed because".mysqli_connect_error());
+}
+
+if(isset($_POST['submit']))
+{
+$n=$_POST['name'];
+$e=$_POST['email'];
+$res="INSERT INTO records(name,email) VALUES ('$n','$e')";
+$data=mysqli_query($con,$res);
+?>
